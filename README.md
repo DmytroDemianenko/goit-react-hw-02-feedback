@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Terminal CLI:
+путь (pwd)
+лист (ls)
+навигация (cd)
+очистка clear или control + l
+создание файлов (touch)
+создание папок (mkdir)
+переименование/перемещение (mv)
+удаление (rm)
