@@ -1,11 +1,9 @@
-import feedback from './components';
+import feedback from "./compoonents/feedback";
 
-function App() {
+export default function App() {
   return (
     <div>
       <feedback/>
     </div>
   );
-}
-
-export default App;
+};
