@@ -3,19 +3,15 @@ import React from "react";
 import s from "./Feedback.module.css";
 
 class Feedback extends React.Component {
-  static defaultProps = {
-good: 0,
+  static defaultProps = { 
+    good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
-    positiveFeedback: 0,
   }
   state = {
     good: this.props.good,
     neutral: this.props.neutral,
     bad: this.props.bad,
-    total: this.props.total,
-    positiveFeedback: this.props.positiveFeedback,
   };
   goodFeedback = () => {
     this.setState((prevState) => {
@@ -38,7 +34,15 @@ good: 0,
       };
     });
   };
-  countTotalFeedback = () => {};
+  countTotalFeedback = (state ) => {
+    const values = Object.values(state);
+    let total = 0;
+      for (const value of values) {
+      total = total + value;
+    }
+    return total;
+    
+  };
   countPositiveFeedbackPercentage = () => {};
   render() {
     return (
@@ -61,8 +65,8 @@ good: 0,
         <p>Good: {this.state.good}</p>
         <p>Neutral: {this.state.neutral}</p>
         <p>Bad: {this.state.bad}</p>
-        <p>Total: {this.state.total}</p>
-        <p>Positive feedback: {this.state.positiveFeedback}</p>
+        <p>Total: {this.countTotalFeedback()}</p>
+        <p>Positive feedback: {this.state.positiveFeedback}%</p>
       </div>
     );
   }
