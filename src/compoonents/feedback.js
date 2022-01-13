@@ -3,7 +3,7 @@
 // import s from "./Feedback.module.css";
 
 // class Feedback extends React.Component {
-//   static defaultProps = { 
+//   static defaultProps = {
 //     good: 0,
 //     neutral: 0,
 //     bad: 0,
