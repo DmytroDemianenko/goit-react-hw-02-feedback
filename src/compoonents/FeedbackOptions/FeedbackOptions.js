@@ -1,9 +1,9 @@
-import s from '../Feedback.module.css';
+import propTypes from 'prop-types';
+import s from './FeedbackOptions.module.css';
 import React from 'react';
 const FeedbackOptions = ({ onLeaveFeedback }) => {
   return (
     <>
-      <h2 className={s.title}>Please leave feedback</h2>
       <button
         className={s.button}
         type="button"
@@ -28,4 +28,7 @@ const FeedbackOptions = ({ onLeaveFeedback }) => {
     </>
   );
 };
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: propTypes.object,
+}
 export default FeedbackOptions;

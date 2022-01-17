@@ -1,16 +1,20 @@
-// import PropTypes from 'prop-types';
-import s from '../Feedback.module.css';
+import PropTypes from 'prop-types';
+import s from './Statistics.module.css';
 import React from 'react';
-const Statistics = ({ options, countTotalFeedback, countPositiveFedback }) => {
+const Statistics = ({ options, total, positivePercentage }) => {
   return (
     <>
-      <h3 className={s.title}>Statistics</h3>
-      <p>Good: {options.good}</p>
-      <p>Neutral: {options.neutral}</p>
-      <p>Bad: {options.bad}</p>
-      <p>Total: {countTotalFeedback()}</p>
-      <p>Positive feedback: {countPositiveFedback()} %</p>
+      <p className={s.secondaryText}>Good: {options.good}</p>
+      <p className={s.secondaryText}>Neutral: {options.neutral}</p>
+      <p className={s.secondaryText}>Bad: {options.bad}</p>
+      <p className={s.secondaryText}>Total: {total}</p>
+      <p className={s.secondaryText}>Positive feedback: {positivePercentage} %</p>
     </>
   );
 };
+Statistics.propTypes = {
+  options: PropTypes.object,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
+  }
 export default Statistics;
