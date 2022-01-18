@@ -41,26 +41,41 @@ class App extends Component {
     const rate = good / this.countTotalFeedback();
     return (rate * 100).toFixed(2);
   };
+  addVote = e => {
+    // console.log(e.curent.target);
+    const { name } = e.target;
+    this.setState(prevState => {
+      return {
+        [name]: prevState[name] + 1,
+      };
+    });
+  };
 
   render() {
-    const options = this.state;
-    const goodFeedback = this.goodFeedback;
-    const neutralFeedback = this.neutralFeedback;
-    const badFeedback = this.badFeedback;
-    const onLeaveFeedback = { goodFeedback, neutralFeedback, badFeedback };
+    const { good, neutral, bad } = this.state;
+    const buttonTitles = Object.keys(this.state);
     const total = this.countTotalFeedback();
     const positivePercentage = +this.countPositiveFeedback();
-      return (
+    return (
       <>
-        <Section  title='Please leave feedback'>
-          <FeedbackOptions options={options} onLeaveFeedback={onLeaveFeedback} />
-          </Section>
-        <Section title='Statistics'>
-          {total ? <Statistics
-          options={options}
-          total={total}
-          positivePercentage={positivePercentage}
-        /> : <Notification message='There is no feedback'> </Notification>}
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={buttonTitles}
+            onLeaveFeedback={this.addVote}
+          />
+        </Section>
+        <Section title="Statistics">
+          {total ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          ) : (
+            <Notification message="There is no feedback"> </Notification>
+          )}
         </Section>
       </>
     );
