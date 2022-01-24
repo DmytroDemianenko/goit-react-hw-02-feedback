@@ -41,9 +41,7 @@ class App extends Component {
     const rate = good / this.countTotalFeedback();
     return (rate * 100).toFixed(2);
   };
-  addVote = e => {
-    // console.log(e.curent.target);
-    const { name } = e.target;
+  addVote = name => {
     this.setState(prevState => {
       return {
         [name]: prevState[name] + 1,
